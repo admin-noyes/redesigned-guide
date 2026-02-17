@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>URL Validator Add-In — Download</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>URL Validator Add-In for Excel</h1>
+
+    <p>This page provides the Excel add-in and instructions to install and use it to validate URLs in any column of an Excel worksheet.</p>
+
+    <div class="buttons">
+      <a id="dlAddin" class="btn btn-primary btn-lg" href="../URL_Validator.xlam" download>Download Add-In (.xlam)</a>
+      <a id="dlPs" class="btn btn-secondary btn-lg" href="../URLChecker.ps1" download>Download PowerShell Script (.ps1)</a>
+    </div>
+
+    <section>
+      <h2>Quick Install & Usage</h2>
+      <ol>
+        <li>Download both files: the add-in (`URL_Validator.xlam`) and the PowerShell helper (`URLChecker.ps1`).</li>
+        <li>Save both files in the same folder on your machine (e.g., <em>C:\Users\You\Documents\URLValidator</em>).</li>
+        <li>Open Excel and install the add-in:
+          <ul>
+            <li>File → Options → Add-Ins → Manage: Excel Add-ins → Go → Browse</li>
+            <li>Select the saved `URL_Validator.xlam` and enable it.</li>
+          </ul>
+        </li>
+        <li>Prepare your workbook: place URLs anywhere starting at row 2 (row 1 is header). The add-in will detect URL-like values in any column.</li>
+        <li>Run the macro: Press <strong>Alt+F8</strong>, choose <strong>RunURLCheck</strong>, then Run. Statuses are written one column to the right of each source URL.</li>
+        <li>After completion, review the `URL_Log` and `URL_Dashboard` worksheets for summary and failures.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Notes & Requirements</h2>
+      <ul>
+        <li>PowerShell 5.1+ recommended (PowerShell 7+ preferred for performance).</li>
+        <li>If scripts are blocked, enable execution for the current user in an elevated PowerShell prompt:
+          <pre><code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre>
+        </li>
+        <li>If you edit the add-in before saving, ensure the add-in has a path (save it) so the VBA can locate `URLChecker.ps1`.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <small>Files in this repository: `URL_Validator.xlam` and `URLChecker.ps1` (one folder up from this page).</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
